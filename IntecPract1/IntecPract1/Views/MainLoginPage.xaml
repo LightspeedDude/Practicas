@@ -23,7 +23,6 @@
             </Label>
 
             <Label x:Name="errorMessage" TextColor="Red" FontAttributes="Italic" Text="{Binding ErrorMessage}"/>
-            <Label Text="nani"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>
