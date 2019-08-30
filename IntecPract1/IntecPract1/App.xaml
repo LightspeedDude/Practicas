@@ -6,6 +6,25 @@
              mc:Ignorable="d"
              x:Class="IntecPract1.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EEE" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style x:Key="BEE" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                    </Style>
+            <Style x:Key="WEE" TargetType="Label">
+                <Setter Property="TextColor" Value="Blue"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <Style x:Key="KEE" TargetType="Label">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="Title"/>
+            </Style>
 
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
