@@ -18,7 +18,7 @@
                     Style="{StaticResource BEE}" Command="{Binding LoginCommand}"/>
             <Label Text="Register" Style="{StaticResource WEE}">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding RegistryCommand}"/>
+                    <TapGestureRecognizer Tapped="OnTapped"/>
                 </Label.GestureRecognizers>
             </Label>
 

@@ -58,10 +58,10 @@ namespace IntecPract1
         //    }
         //}
 
-        //async void OnTap(object sender, EventArgs args)
-        //{
-        //    await App.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
-        //}
+        async void OnTap(object sender, EventArgs args)
+        {
+            await App.Current.MainPage.Navigation.PushModalAsync(new RegisterPage());
+        }
 
     }
 }

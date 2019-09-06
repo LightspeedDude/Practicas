@@ -4,10 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="IntecPract1.Views.HomeDetailPage">
+             x:Class="IntecPract1.Views.EditPage">
     <ContentPage.Content>
-        <StackLayout Padding="15">
-            <Label Text="This is a view"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+
+                <Entry x:Name="ENm" Placeholder="Name"/>
+                <Entry x:Name="ENb" Placeholder="Number"/>
+
+                <Button Text="Edit" x:Name="Edit" Clicked="OneditClick" VerticalOptions="End" HorizontalOptions="CenterAndExpand"/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

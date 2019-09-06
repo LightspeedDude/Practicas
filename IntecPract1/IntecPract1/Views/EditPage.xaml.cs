@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntecPract1.ViewsModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace IntecPract1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomeDetailPage : ContentPage
+    public partial class EditPage : ContentPage
     {
-        public HomeDetailPage()
+        public EditPage()
         {
             InitializeComponent();
+            this.BindingContext = new ContactViewModel();
         }
     }
 }

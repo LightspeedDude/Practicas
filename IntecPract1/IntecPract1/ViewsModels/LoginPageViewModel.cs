@@ -14,19 +14,12 @@ namespace IntecPract1.ViewsModels
         public string ErrorMessage { get; set; }
         public ICommand LoginCommand { get; set; }
 
-        public ICommand RegistryCommand { get; set; }
-
         public LoginPageViewModel()
         {
             LoginCommand = new Command(Login);
-            RegistryCommand = new Command(Register);
         }
         public User User { get; set; } = new User();
-       
-        async void Register()
-        {
-            await App.Current.MainPage.Navigation.PushModalAsync(new RegisterPage());
-        }
+      
 
         public event PropertyChangedEventHandler PropertyChanged;
         async void Login()
@@ -42,6 +35,7 @@ namespace IntecPract1.ViewsModels
             else
             {
                 await App.Current.MainPage.DisplayAlert("Welcome", $" Have fun", "Ok");
+                //await App.Current.MainPage.Navigation.PushModalAsync(new ContactPage());
             }
         }
         
