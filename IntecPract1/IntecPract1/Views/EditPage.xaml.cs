@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace IntecPract1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditPage : ContentPage
+    public partial class EditPage
     {
         public EditPage()
         {
             InitializeComponent();
-            this.BindingContext = new ContactViewModel();
+            this.BindingContext = new EditPageViewModel();
         }
     }
 }

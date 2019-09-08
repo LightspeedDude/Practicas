@@ -35,7 +35,7 @@ namespace IntecPract1.Views
             switch (action)
             {
                 case "Call":
-                    Device.OpenUri(new Uri(String.Format("tel:{0}", Number.Text)));
+                    Device.OpenUri(new Uri(String.Format("tel:{0}", Cell.BindingContextProperty)));
                     break;
                 case "Edit":
                     await App.Current.MainPage.Navigation.PushModalAsync(new EditPage());

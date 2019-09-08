@@ -4,9 +4,9 @@ using System.Text;
 
 namespace IntecPract1.Models
 {
-    class ContactView
+    class Contact
     {
         public string Name { get; set; }
-        public long Number { get; set; }
+        public string Number { get; set; }
     }
 }

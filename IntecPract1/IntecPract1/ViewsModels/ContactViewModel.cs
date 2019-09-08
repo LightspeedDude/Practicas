@@ -11,9 +11,9 @@ namespace IntecPract1.ViewsModels
 {
     class ContactViewModel : ContentPage
     {
-        ContactView contact;
+        Contact contact;
 
-        public ContactView SelectedContact
+        public Contact SelectedContact
         {
             get
             {
@@ -25,47 +25,36 @@ namespace IntecPract1.ViewsModels
             }
         }
 
-        public ObservableCollection<ContactView> Contact { get; set; } = new ObservableCollection<ContactView>();
+        public ObservableCollection<Contact> Contacts { get; set; } = new ObservableCollection<Contact>();
 
         public ICommand DeleteElementCommand { get; set; }
         public object ContextActions { get; }
         public static ObservableCollection<string> items { get; set; }
 
-        public object Naming { get; set; }
-
-        public object Cell { get; set; }
-        public ICommand AddCommand { get; set; }
-
         public ContactViewModel()
         {
-            ContactView myContact = new ContactView();
-
-            AddCommand = new Command(async (param) =>
-            {
-                myContact.Name = Naming.ToString;
-                myContact.Number = Cell.ToString;
-
-                var result = Contact.Add(myContact);
-
-            });
-
+            Contact myContact = new Contact();
 
             DeleteElementCommand = new Command(async (param) =>
             {
-                var result = Contact.Remove(SelectedContact);
+                var result = Contacts.Remove(SelectedContact);
 
             });
 
             MessagingCenter.Subscribe<AddPage, ContactPage>(this, "AddItem", (obj, item) =>
             {
-
                 var newItem = item as ContactPage;
-                ContactView temp = new ContactView() { Name = newItem.nm, Number = newItem.nb };
 
-                Contact.Add(temp);
 
-                listv.ItemsSource = null;
-                listv.ItemsSource = Contact;
+                //Contact temp = new Contact() { Name = newItem.Naming, Number = newItem.Cell };
+
+                myContact.Name = item.Name;
+                myContact.Number = item.Number;
+
+                Contacts.Add(myContact);
+
+                //listv.ItemsSource = null;
+                //listv.ItemsSource = Contact;
 
             });
 

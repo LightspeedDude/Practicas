@@ -9,33 +9,32 @@ using Xamarin.Forms;
 
 namespace IntecPract1.ViewsModels
 {
-    class AddPageViewModel
+    class EditPageViewModel
     {
         Contact contact;
         public ObservableCollection<Contact> Contacts { get; set; } = new ObservableCollection<Contact>();
         //AddPage C = new AddPage();
-        public Entry Naming { get; set; }
+        public Entry EditNaming { get; set; }
 
-        public Entry Cell { get; set; }
-        public ICommand AddCommand { get; set; }
+        public Entry EditCell { get; set; }
+        public ICommand EditCommand { get; set; }
 
-        public AddPageViewModel()
+        public EditPageViewModel()
         {
             Contact myContact = new Contact();
 
-            AddCommand = new Command(async (param) =>
+            EditCommand = new Command(async (param) =>
             {
-                myContact.Name = Naming.Text;
-                myContact.Number = Cell.Text;
+                //myContact.Name = Naming.Text;
+                //myContact.Number = Cell.Text;
 
-                Contacts.Add(myContact);
+                 //var result = Contacts.CopyTo(myContact);
 
-                MessagingCenter.Send(this, "AddItem", myContact);
+                MessagingCenter.Send(this, "EditItem", myContact);
                 await App.Current.MainPage.Navigation.PushModalAsync(new ContactPage());
             });
 
 
         }
-
-        }
+    }
 }
