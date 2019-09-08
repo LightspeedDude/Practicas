@@ -31,6 +31,9 @@ namespace IntecPract1.ViewsModels
         public object ContextActions { get; }
         public static ObservableCollection<string> items { get; set; }
 
+        public ICommand AddContact { get; set; }
+        public ICommand More { get; set; }
+
         public ContactViewModel()
         {
             Contact myContact = new Contact();
@@ -41,27 +44,40 @@ namespace IntecPract1.ViewsModels
 
             });
 
-            MessagingCenter.Subscribe<AddPage, ContactPage>(this, "AddItem", (obj, item) =>
+            AddContact = new Command(async (param) =>
             {
-                var newItem = item as ContactPage;
-
-
-                //Contact temp = new Contact() { Name = newItem.Naming, Number = newItem.Cell };
-
-                myContact.Name = item.Name;
-                myContact.Number = item.Number;
-
-                Contacts.Add(myContact);
-
-                //listv.ItemsSource = null;
-                //listv.ItemsSource = Contact;
-
+                await App.Current.MainPage.Navigation.PushModalAsync(new AddPage());
+            });
+            More = new Command(async (param) =>
+            {
+                var action = await DisplayActionSheet("Choose an Option", "Call", "Edit", "Cancel", null);
+                switch (action)
+                {
+                    case "Call":
+                        Device.OpenUri(new Uri(String.Format("tel:{0}", SelectedContact.Number)));
+                        break;
+                    case "Edit":
+                        await App.Current.MainPage.Navigation.PushModalAsync(new EditPage());
+                        break;
+                }
             });
 
-            //myContact.Name = "Juan";
-            //myContact.Number = 8096574545;
 
-            //Contact.Add(myContact);
+            MessagingCenter.Subscribe<AddPageViewModel, Contact>(this, "AddItem", (obj, item) =>
+            {
+                myContact.Name = item.Name;
+                myContact.Number = item.Number;
+                Contacts.Add(myContact);
+            });
+
+            MessagingCenter.Send(this, "AddedItem", SelectedContact);
+
+            MessagingCenter.Subscribe<EditPageViewModel, Contact>(this, "EditItem", (obj, item) =>
+            {
+                SelectedContact.Name = item.Name;
+                SelectedContact.Number = item.Number;
+                Contacts.Add(SelectedContact);
+            });
 
         }
 

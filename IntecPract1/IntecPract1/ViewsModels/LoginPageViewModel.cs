@@ -35,7 +35,7 @@ namespace IntecPract1.ViewsModels
             else
             {
                 await App.Current.MainPage.DisplayAlert("Welcome", $" Have fun", "Ok");
-                //await App.Current.MainPage.Navigation.PushModalAsync(new ContactPage());
+                await App.Current.MainPage.Navigation.PushModalAsync(new ContactPage());
             }
         }
         

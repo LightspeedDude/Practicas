@@ -34,6 +34,11 @@ namespace IntecPract1.ViewsModels
                 await App.Current.MainPage.Navigation.PushModalAsync(new ContactPage());
             });
 
+            MessagingCenter.Subscribe<ContactViewModel, Contact>(this, "AddedItem", (obj, item) =>
+            {
+                EditNaming.Text = item.Name;
+                EditCell.Text = item.Number;
+            });
 
         }
     }

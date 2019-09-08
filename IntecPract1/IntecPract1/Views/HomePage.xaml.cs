@@ -17,7 +17,6 @@ namespace IntecPract1.Views
 
             InitializeComponent();
             this.Master = new HomeMasterPage();
-            this.Detail = new NavigationPage(new HomeDetailPage());
         }
     }
 }

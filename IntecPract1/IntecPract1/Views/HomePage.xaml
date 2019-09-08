@@ -13,9 +13,11 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
+              <ContentPage Title="Detail">
                 <StackLayout Padding="15">
                     <Label Text="This is a view"/>
                 </StackLayout>
+              </ContentPage>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
