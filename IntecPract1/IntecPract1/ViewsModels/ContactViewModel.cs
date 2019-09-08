@@ -3,13 +3,14 @@ using IntecPract1.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace IntecPract1.ViewsModels
 {
-    class ContactViewModel : ContentPage
+    class ContactViewModel : ContactPage, INotifyPropertyChanged
     {
         Contact contact;
 
@@ -27,6 +28,7 @@ namespace IntecPract1.ViewsModels
 
         public ObservableCollection<Contact> Contacts { get; set; } = new ObservableCollection<Contact>();
 
+        public event PropertyChangedEventHandler PropertyChanged;
         public ICommand DeleteElementCommand { get; set; }
         public object ContextActions { get; }
         public static ObservableCollection<string> items { get; set; }
@@ -38,7 +40,7 @@ namespace IntecPract1.ViewsModels
         {
             Contact myContact = new Contact();
 
-            DeleteElementCommand = new Command(async (param) =>
+            DeleteElementCommand = new Command((param) =>
             {
                 var result = Contacts.Remove(SelectedContact);
 
@@ -48,6 +50,11 @@ namespace IntecPract1.ViewsModels
             {
                 await App.Current.MainPage.Navigation.PushModalAsync(new AddPage());
             });
+
+            myContact.Name = "Juan";
+            myContact.Number = "8098432123";
+            Contacts.Add(myContact);
+
             More = new Command(async (param) =>
             {
                 var action = await DisplayActionSheet("Choose an Option", "Call", "Edit", "Cancel", null);
@@ -63,11 +70,13 @@ namespace IntecPract1.ViewsModels
             });
 
 
+
             MessagingCenter.Subscribe<AddPageViewModel, Contact>(this, "AddItem", (obj, item) =>
             {
                 myContact.Name = item.Name;
                 myContact.Number = item.Number;
                 Contacts.Add(myContact);
+                MessagingCenter.Unsubscribe<AddPageViewModel, Contact>(this, "AddItem");
             });
 
             MessagingCenter.Send(this, "AddedItem", SelectedContact);
@@ -77,6 +86,7 @@ namespace IntecPract1.ViewsModels
                 SelectedContact.Name = item.Name;
                 SelectedContact.Number = item.Number;
                 Contacts.Add(SelectedContact);
+                MessagingCenter.Unsubscribe<EditPageViewModel, Contact>(this, "EditItem");
             });
 
         }

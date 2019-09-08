@@ -17,7 +17,6 @@ namespace IntecPract1.Views
         {
             InitializeComponent();
             this.BindingContext = new ContactViewModel();
-
             listv.ItemTapped += Listv_ItemTapped;
         }
         //probably not gonna use

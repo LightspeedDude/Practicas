@@ -30,6 +30,10 @@ namespace IntecPract1.ViewsModels
 
                 Contacts.Add(myContact);
 
+                myContact.Name = "Pablo";
+                myContact.Number = "8099875678";
+                Contacts.Add(myContact);
+
                 MessagingCenter.Send(this, "AddItem", myContact);
                 await App.Current.MainPage.Navigation.PushModalAsync(new ContactPage());
             });

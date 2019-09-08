@@ -6,9 +6,9 @@
              mc:Ignorable="d"
              x:Class="IntecPract1.Views.ContactPage">
     <ContentPage.ToolbarItems >
-        <ToolbarItem Name="Addc" Order="Primary" Text="Add" Priority="0"/>
-        <ToolbarItem Name="Editc" Order="Secondary" Text="More" Priority="1"/>
-        <ToolbarItem Name="deletec" Order="Secondary" Text="Delete" Priority="2" 
+        <ToolbarItem Command="{Binding AddContact}" Order="Primary" Text="Add"/>
+        <ToolbarItem Command="{Binding More}" Order="Secondary" Text="More"/>
+        <ToolbarItem Order="Secondary" Text="Delete" 
                      Command="{Binding Path=BindingContext.DeleteElementCommand, Source={x:Reference listv}}"
                                        CommandParameter="{Binding .}" IsDestructive="True"/>
         <!--<ToolbarItem Clicked="OnDelete" Text="Delete" Order="Secondary" IsDestructive="true" CommandParameter="{Binding .}" />-->

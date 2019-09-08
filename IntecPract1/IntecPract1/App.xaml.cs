@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntecPract1.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,8 +10,7 @@ namespace IntecPract1
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainLoginPage();
+            MainPage = new ContactPage();
         }
 
         protected override void OnStart()
