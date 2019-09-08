@@ -9,10 +9,10 @@
         <ScrollView>
             <StackLayout>
 
-                <Entry x:Name="Nm" Placeholder="Name"/>
-                <Entry x:Name="Nb" Placeholder="Number"/>
+                <Entry Text="{Binding Naming}" Placeholder="Name"/>
+                <Entry Text="{Binding Cell}" Placeholder="Cellphone"/>
 
-                <Button Text="Add" x:Name="Add" Clicked="OnSaveClick" VerticalOptions="End" HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Add" Command="{Binding AddCommand}" VerticalOptions="End" HorizontalOptions="CenterAndExpand"/>
 
             </StackLayout>
         </ScrollView>

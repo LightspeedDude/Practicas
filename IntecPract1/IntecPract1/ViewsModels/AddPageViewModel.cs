@@ -6,5 +6,7 @@ namespace IntecPract1.ViewsModels
 {
     class AddPageViewModel
     {
+
+
     }
 }

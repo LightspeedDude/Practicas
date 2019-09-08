@@ -31,12 +31,26 @@ namespace IntecPract1.ViewsModels
         public object ContextActions { get; }
         public static ObservableCollection<string> items { get; set; }
 
+        public object Naming { get; set; }
+
+        public object Cell { get; set; }
+        public ICommand AddCommand { get; set; }
+
         public ContactViewModel()
         {
             ContactView myContact = new ContactView();
 
+            AddCommand = new Command(async (param) =>
+            {
+                myContact.Name = Naming.ToString;
+                myContact.Number = Cell.ToString;
 
-            DeleteElementCommand = new Command<ContactView>(async (param) =>
+                var result = Contact.Add(myContact);
+
+            });
+
+
+            DeleteElementCommand = new Command(async (param) =>
             {
                 var result = Contact.Remove(SelectedContact);
 
@@ -55,10 +69,10 @@ namespace IntecPract1.ViewsModels
 
             });
 
-            myContact.Name = "Juan";
-            myContact.Number = 8096574545;
+            //myContact.Name = "Juan";
+            //myContact.Number = 8096574545;
 
-            Contact.Add(myContact);
+            //Contact.Add(myContact);
 
         }
 
