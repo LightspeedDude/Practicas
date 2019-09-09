@@ -10,7 +10,7 @@ namespace IntecPract1
         public App()
         {
             InitializeComponent();
-            MainPage = new ContactPage();
+            MainPage = new MainLoginPage();
         }
 
         protected override void OnStart()

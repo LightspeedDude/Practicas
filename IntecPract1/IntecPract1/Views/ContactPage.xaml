@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="IntecPract1.Views.ContactPage">
-    <ContentPage.ToolbarItems >
+    <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding AddContact}" Order="Primary" Text="Add"/>
         <ToolbarItem Command="{Binding More}" Order="Secondary" Text="More"/>
         <ToolbarItem Order="Secondary" Text="Delete" 
@@ -15,7 +15,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding Contact}" x:Name="listv" SelectedItem="{Binding SelectedContact}">
+            <ListView ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

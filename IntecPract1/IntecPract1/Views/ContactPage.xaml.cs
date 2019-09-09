@@ -17,14 +17,14 @@ namespace IntecPract1.Views
         {
             InitializeComponent();
             this.BindingContext = new ContactViewModel();
-            listv.ItemTapped += Listv_ItemTapped;
+            //listv.ItemTapped += Listv_ItemTapped;
         }
         //probably not gonna use
-        private void Listv_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            MessagingCenter.Send<ContactPage, string>(this, "Contact", "Hi");
+        //private void Listv_ItemTapped(object sender, ItemTappedEventArgs e)
+        //{
+        //    MessagingCenter.Send<ContactPage, string>(this, "Contact", "Hi");
 
-        }
+        //}
         //async void OnClicked(object sender, EventArgs e)
         //{
         //    await App.Current.MainPage.Navigation.PushModalAsync(new AddPage());
